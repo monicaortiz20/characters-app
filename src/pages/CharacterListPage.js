@@ -58,8 +58,8 @@ function CharacterList() {
               placeholder="Search characters by name"
               onChange={handleSearch}
             />
-            <a href="/planets" className="btn btn-success ms-2">
-              View Planets
+            <a href="/detail" className="btn btn-success ms-2">
+              View Detail
             </a>
           </div>
         </div>
