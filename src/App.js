@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+//Componente principal: configura las rutas de la app.
+//Donde la ruta inicial '/' sea el listado de personajes y '/detail' su detalle.
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import CharacterListPage from "./pages/CharacterListPage";
+import CharacterDetailPage from "./pages/CharacterDetailPage";
+import Header from "./components/Header";
+import FavoritesPage from "./pages/FavoritePage";
+import "./App.css";
 
 function App() {
+  const [favorites, setFavorites] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header favoriteCount={favorites.length} />
+      <div className="container mt-5">
+        <Routes>
+          <Route path="/" element={<CharacterListPage />} />
+          <Route path="/detail" element={<CharacterDetailPage />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
