@@ -1,7 +1,6 @@
-import logo from "./logo.svg";
 import "./App.css";
 
-function App() {
+function detail() {
   return (
     <div className="App">
       <p>DETAIL</p>
@@ -9,4 +8,4 @@ function App() {
   );
 }
 
-export default App;
+export default detail;
