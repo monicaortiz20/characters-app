@@ -7,14 +7,14 @@ function Header({ favoriteCount }) {
   return (
     <header className="header">
       <div className="header-left">
-        <Link to="/favorites">
-          <FaHeart className="heart-icon" />
-          <span className="favorite-count">{favoriteCount}</span>
+        <Link to="/">
+          <img src="./images/ball.png" alt="Dragon Ball" className="logo" />
         </Link>
       </div>
       <div className="header-right">
-        <Link to="/">
-          <img src="./images/ball.png" alt="Dragon Ball" className="logo" />
+        <Link to="/favorites">
+          <FaHeart className="heart-icon" />
+          <span className="favorite-count">{favoriteCount}</span>
         </Link>
       </div>
     </header>

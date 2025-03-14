@@ -1,8 +1,7 @@
 import React from "react";
+import { FaHeart } from "react-icons/fa";
 
-//Propiedades del personaje
-
-function CharacterCard({ character, setFavoriteCharacter }) {
+function CharacterCard({ character, addFavorite }) {
   return (
     <div className="col">
       <div className="card h-100 shadow">
@@ -15,9 +14,9 @@ function CharacterCard({ character, setFavoriteCharacter }) {
           <h5 className="card-title">{character.name}</h5>
           <button
             className="btn btn-primary"
-            onClick={() => setFavoriteCharacter(character)}
+            onClick={() => addFavorite(character)}
           >
-            View Details
+            <FaHeart className="heart-icon" />
           </button>
         </div>
       </div>

@@ -1,11 +1,12 @@
-import "../App.css";
+import React, { useState, useEffect } from "react";
+import CharacterCard from "../components/CharacterCard";
 
-function App() {
+function CharacterDetail() {
   return (
     <div className="App">
-      <p>detail PAGE</p>
+      <CharacterCard />
     </div>
   );
 }
 
-export default App;
+export default CharacterDetail;
