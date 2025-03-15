@@ -14,6 +14,11 @@ function App() {
     setFavorites((prevFavorites) => [...prevFavorites, character]);
   }
 
+  function deleteFavorite(character) {
+    setFavorites((prevFavorites) =>
+      prevFavorites.filter((fav) => fav.id !== character.id)
+    );
+  }
   return (
     <Router>
       <Header favoriteCount={favorites.length} />
@@ -21,12 +26,23 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<CharacterListPage addFavorite={addFavorite} />}
+            element={
+              <CharacterListPage
+                favorites={favorites}
+                addFavorite={addFavorite}
+                deleteFavorite={deleteFavorite}
+              />
+            }
           />
           <Route path="/detail" element={<CharacterDetailPage />} />
           <Route
             path="/favorites"
-            element={<FavoritesPage favorites={favorites} />}
+            element={
+              <FavoritesPage
+                favorites={favorites}
+                deleteFavorite={deleteFavorite}
+              />
+            }
           />
         </Routes>
       </div>

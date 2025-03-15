@@ -1,7 +1,16 @@
 import React from "react";
 import { FaHeart } from "react-icons/fa";
 
-function CharacterCard({ character, addFavorite }) {
+function CharacterCard({ character, addFavorite, deleteFavorite, isFavorite }) {
+  //verificamos si existe como favorito o no
+  function handleFavorites() {
+    if (isFavorite) {
+      deleteFavorite(character);
+    } else {
+      addFavorite(character);
+    }
+  }
+
   return (
     <div className="col">
       <div className="card h-100 shadow">
@@ -12,11 +21,10 @@ function CharacterCard({ character, addFavorite }) {
         />
         <div className="card-body">
           <h5 className="card-title">{character.name}</h5>
-          <button
-            className="btn btn-primary"
-            onClick={() => addFavorite(character)}
-          >
-            <FaHeart className="heart-icon" />
+          <button className="btn btn-primary" onClick={handleFavorites}>
+            <FaHeart
+              className={`heart-icon ${isFavorite ? "text-danger" : ""}`}
+            />
           </button>
         </div>
       </div>

@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import CharacterCard from "../components/CharacterCard";
 
 //recibimos la función "añadir Favorito" como prop y se lo pasamos a CharacterCard
-function CharacterList({ addFavorite }) {
-  //declaramos estados:
-  //Estado para el de listado de los personajes
+function CharacterList({ favorites, addFavorite, deleteFavorite }) {
+  //declaramos estados: listado de los personajes, búsqueda, ...
   const [characters, setCharacters] = useState([]);
-  //2. Estado para búsqueda de personajes
   const [filterCharacter, setFilterCharacter] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -74,7 +72,9 @@ function CharacterList({ addFavorite }) {
             <CharacterCard
               key={character.id}
               character={character}
+              isFavorite={favorites.some((fav) => fav.id === character.id)}
               addFavorite={addFavorite}
+              deleteFavorite={deleteFavorite}
             />
           ))}
         </div>
