@@ -7,13 +7,13 @@ function Header({ favoriteCount, toggleFavorites }) {
     <header className="header">
       <div className="header-left">
         <a href="/">
-          <img src="./images/ball.png" alt="Dragon Ball" className="logo" />
+          <img src="" alt="Dragon Ball" className="logo" />
         </a>
       </div>
       <div className="header-right">
-        <button className="btn btn-link" onClick={toggleFavorites}>
+        <button className="btn" onClick={toggleFavorites}>
           <FaHeart className="heart-icon" />
-          <span className="favorite-count">{favoriteCount}</span>
+          <span>{favoriteCount}</span>
         </button>
       </div>
     </header>

@@ -3,7 +3,8 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #f8f9fa;
+  background-color: black;
+  height: 5rem;
 }
 
 .header-left {
@@ -17,13 +18,13 @@ header {
   cursor: pointer;
 }
 
-.favorite-count {
-  margin-left: 8px;
-  font-size: 18px;
-  color: black;
-}
-
-.header-right .logo {
-  height: 40px;
+.header-right button {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  span {
+    color: white;
+    font-size: 20px;
+  }
 }

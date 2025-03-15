@@ -40,7 +40,8 @@ function CharacterList({
 
   function handleSearch(e) {
     const request = e.target.value.toLowerCase();
-    const filteredResults = characters.filter((character) =>
+    const listResults = showFavorites ? favorites : characters;
+    const filteredResults = listResults.filter((character) =>
       //buscamos en minúscula por nombre
       character.name.toLowerCase().includes(request)
     );
