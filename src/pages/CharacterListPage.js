@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CharacterCard from "../components/CharacterCard";
+import { FaSearch } from "react-icons/fa";
+import "../styles/characterList.css";
 
 //recibimos funciones addFavorite y deleteFavorite como prop y se lo pasamos a CharacterCard
 function CharacterList({
@@ -55,13 +57,14 @@ function CharacterList({
         <div>
           <div className="row justify-content-center mb-4">
             <div className="col-md-6">
-              <div className="input-group">
+              <div className="search-bar pb-2">
                 <input
                   type="text"
                   className="form-control"
                   placeholder="SEARCH A CHARACTER..."
                   onChange={handleSearch}
                 />
+                <FaSearch className="search-icon" />
               </div>
             </div>
           </div>
@@ -96,6 +99,7 @@ function CharacterList({
                   placeholder="SEARCH A CHARACTER..."
                   onChange={handleSearch}
                 />
+                <FaSearch className="search-icon" />
               </div>
             </div>
           </div>

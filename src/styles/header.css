@@ -8,8 +8,10 @@ header {
 }
 
 .header-left {
-  display: flex;
-  align-items: center;
+  img {
+    width: 9rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .heart-icon {

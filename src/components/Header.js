@@ -1,5 +1,6 @@
 import React from "react";
 import { FaHeart } from "react-icons/fa";
+import logo from "../images/logo-bg.png";
 import "../styles/header.css";
 
 function Header({ favoriteCount, toggleFavorites }) {
@@ -7,7 +8,7 @@ function Header({ favoriteCount, toggleFavorites }) {
     <header className="header">
       <div className="header-left">
         <a href="/">
-          <img src="" alt="Dragon Ball" className="logo" />
+          <img src={logo} alt="Dragon Ball" className="" />
         </a>
       </div>
       <div className="header-right">
