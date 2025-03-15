@@ -4,12 +4,13 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CharacterListPage from "./pages/CharacterListPage";
 import CharacterDetailPage from "./pages/CharacterDetailPage";
 import Header from "./components/Header";
-import FavoritesPage from "./pages/FavoritePage";
 import "./App.css";
 
 function App() {
   //estado para almacenar los favoritos
   const [favorites, setFavorites] = useState([]);
+  const [showFavorites, setShowFavorites] = useState(false);
+
   function addFavorite(character) {
     setFavorites((prevFavorites) => [...prevFavorites, character]);
   }
@@ -19,9 +20,16 @@ function App() {
       prevFavorites.filter((fav) => fav.id !== character.id)
     );
   }
+
+  function toggleFavorites() {
+    setShowFavorites(!showFavorites);
+  }
   return (
     <Router>
-      <Header favoriteCount={favorites.length} />
+      <Header
+        favoriteCount={favorites.length}
+        toggleFavorites={toggleFavorites}
+      />
       <div className="container mt-5">
         <Routes>
           <Route
@@ -31,19 +39,11 @@ function App() {
                 favorites={favorites}
                 addFavorite={addFavorite}
                 deleteFavorite={deleteFavorite}
+                showFavorites={showFavorites}
               />
             }
           />
-          <Route path="/detail" element={<CharacterDetailPage />} />
-          <Route
-            path="/favorites"
-            element={
-              <FavoritesPage
-                favorites={favorites}
-                deleteFavorite={deleteFavorite}
-              />
-            }
-          />
+          <Route path="/detail/:id" element={<CharacterDetailPage />} />
         </Routes>
       </div>
     </Router>
