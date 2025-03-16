@@ -29,6 +29,7 @@ function App() {
       <Header
         favoriteCount={favorites.length}
         toggleFavorites={toggleFavorites}
+        showFavorites={showFavorites}
       />
       <div>
         <Routes>
@@ -48,8 +49,10 @@ function App() {
             element={
               <CharacterDetailPage
                 favorites={favorites}
-                toggleFavorites={toggleFavorites}
+                addFavorite={addFavorite}
+                deleteFavorite={deleteFavorite}
                 showFavorites={showFavorites}
+                toggleFavorites={toggleFavorites}
               />
             }
           />

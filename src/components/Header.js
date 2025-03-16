@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import logo from "../images/dragonBallZ.png";
 import "../styles/header.css";
 
-function Header({ favoriteCount, toggleFavorites }) {
+function Header({ favoriteCount, toggleFavorites, showFavorites }) {
   const navigate = useNavigate();
 
   function handleToggleFavorites() {

@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import "../styles/characterDetail.css";
 
-function CharacterDetail({ favorites, toggleFavorites, showFavorites }) {
+function CharacterDetail({
+  favorites,
+  toggleFavorites,
+  showFavorites,
+  addFavorite,
+  deleteFavorite,
+}) {
   const { id } = useParams();
   const [characterDetail, setCharacterDetail] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -33,7 +39,15 @@ function CharacterDetail({ favorites, toggleFavorites, showFavorites }) {
     }
   }
 
-  const isFavorite = favorites.some((fav) => fav.id === id);
+  const isFavorite = favorites.some((fav) => fav.id === characterDetail?.id);
+
+  function handleToggleFavorite() {
+    if (isFavorite) {
+      deleteFavorite(characterDetail);
+    } else {
+      addFavorite(characterDetail);
+    }
+  }
 
   if (loading) {
     return <div className="text-center">Loading...</div>;
@@ -60,7 +74,7 @@ function CharacterDetail({ favorites, toggleFavorites, showFavorites }) {
                 <h1>{characterDetail.name}</h1>
                 <FaHeart
                   className={`heart-icon ${isFavorite ? "favorite" : ""}`}
-                  onClick={toggleFavorites}
+                  onClick={handleToggleFavorite}
                 />
               </div>
               <p>{characterDetail.description}</p>
