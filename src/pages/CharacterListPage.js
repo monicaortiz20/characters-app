@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import CharacterCard from "../components/CharacterCard";
 import SearchBar from "../components/SearchBar";
+import { FaSearch } from "react-icons/fa";
+import "../styles/characterList.css";
 
 //recibimos funciones addFavorite y deleteFavorite como prop y se lo pasamos a CharacterCard
 function CharacterList({
