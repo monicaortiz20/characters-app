@@ -23,24 +23,18 @@ function CharacterCard({ character, addFavorite, deleteFavorite, isFavorite }) {
     <div className="cardBox">
       <div className="containerBox" onClick={seeCharacterDetail}>
         <div className="imgBox">
-          <img
-            src={character.image}
-            className="card-img-top"
-            alt={character.name}
-          />
+          <img src={character.image} className="" alt={character.name} />
         </div>
         <div className="cardBody">
           <h5 className="card-title">{character.name}</h5>
           <button
-            className="btn btn-primary"
+            className="btn"
             onClick={(e) => {
               e.stopPropagation(); //para que el evento click de 'favorite' no aplique al padre
               handleFavorites();
             }}
           >
-            <FaHeart
-              className={`heart-icon ${isFavorite ? "text-danger" : ""}`}
-            />
+            <FaHeart className={`heart-icon ${isFavorite ? "favorite" : ""}`} />
           </button>
         </div>
       </div>
