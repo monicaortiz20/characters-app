@@ -11,6 +11,7 @@
     align-items: center;
     justify-content: center;
     width: 60%;
+    gap: 3rem;
 
     h1 {
       font-weight: 700;
@@ -47,6 +48,7 @@
 .transformationContainer {
   display: flex;
   justify-content: center;
+  padding: 2rem 0;
 
   .transformationBox {
     width: 60%;
@@ -144,16 +146,17 @@
 @media screen and (max-width: 1024px) {
   .dataDetail {
     width: 100% !important;
+    gap: 2rem !important;
     .imgBox {
-      width: 50%;
+      width: auto;
       margin: 20px 0;
     }
     .description {
       width: 50%;
     }
   }
-  .transformationContainer {
-    flex-direction: column !important;
-    align-items: center;
+  .transformationBox {
+    width: 100% !important;
+    padding: 0 2rem;
   }
 }
