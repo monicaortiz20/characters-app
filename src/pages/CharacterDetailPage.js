@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import "../styles/characterDetail.css";
 
-function CharacterDetail({ favorites }) {
+function CharacterDetail({ favorites, toggleFavorites, showFavorites }) {
   const { id } = useParams();
   const [characterDetail, setCharacterDetail] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -60,6 +60,7 @@ function CharacterDetail({ favorites }) {
                 <h1>{characterDetail.name}</h1>
                 <FaHeart
                   className={`heart-icon ${isFavorite ? "favorite" : ""}`}
+                  onClick={toggleFavorites}
                 />
               </div>
               <p>{characterDetail.description}</p>

@@ -15,6 +15,10 @@ header {
   }
 }
 
+button:active {
+  border: none;
+}
+
 .heart-icon {
   font-size: 24px;
   color: red;

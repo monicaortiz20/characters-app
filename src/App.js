@@ -45,7 +45,13 @@ function App() {
           />
           <Route
             path="/detail/:id"
-            element={<CharacterDetailPage favorites={favorites} />}
+            element={
+              <CharacterDetailPage
+                favorites={favorites}
+                toggleFavorites={toggleFavorites}
+                showFavorites={showFavorites}
+              />
+            }
           />
         </Routes>
       </div>
