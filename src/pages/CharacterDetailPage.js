@@ -21,7 +21,6 @@ function CharacterDetail({ favorites }) {
         `https://dragonball-api.com/api/characters/${id}`
       );
       const data = await resp.json();
-      console.log("details: " + data);
       //ordenamos las transformaciones
       data.transformations.sort((a, b) => b.ki - a.ki);
       setCharacterDetail(data);
@@ -45,9 +44,10 @@ function CharacterDetail({ favorites }) {
 
   return (
     <div className="containerDetail">
-      <div className="row">
+      <div className="">
         <div className="mainboxDetail">
           <div className="dataDetail">
+            <div className="square"></div>
             <div className="imgBox">
               <img
                 src={characterDetail.image}
@@ -79,9 +79,9 @@ function CharacterDetail({ favorites }) {
                 ))}
               </ul>
             ) : (
-              <spam className="no-transformations text-start">
+              <span className="no-transformations text-start">
                 This character has no transformations.
-              </spam>
+              </span>
             )}
           </div>
         </div>

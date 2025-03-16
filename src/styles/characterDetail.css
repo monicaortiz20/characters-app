@@ -4,8 +4,19 @@
     display: flex;
     justify-content: center;
     border-top: 1px solid #333333;
+    padding: 0;
+    margin: 0;
+    width: 100%;
   }
-
+  .square {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    position: absolute;
+    top: 31.5rem;
+    right: 0;
+    background: linear-gradient(to bottom right, black 50%, white 50%);
+  }
   .dataDetail {
     display: flex;
     align-items: center;
@@ -141,6 +152,9 @@
       align-items: center !important;
     }
   }
+  .square {
+    display: none !important;
+  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -158,5 +172,8 @@
   .transformationBox {
     width: 100% !important;
     padding: 0 2rem;
+  }
+  .square {
+    top: 34rem !important;
   }
 }
