@@ -55,7 +55,7 @@ function CharacterDetail({ favorites }) {
                 className="img-fluid"
               />
             </div>
-            <div className="col-md-8">
+            <div className="description">
               <div className="heartDetail">
                 <h1>{characterDetail.name}</h1>
                 <FaHeart
@@ -66,7 +66,7 @@ function CharacterDetail({ favorites }) {
             </div>
           </div>
         </div>
-        <div className="transformationContainer mt-5">
+        <div className="transformationContainer">
           <div className="transformationBox">
             <h2>Transformations</h2>
             {characterDetail.transformations.length !== 0 ? (

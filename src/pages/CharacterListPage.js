@@ -59,7 +59,7 @@ function CharacterList({
   }
 
   return (
-    <div className="mainBox m-5">
+    <div className="mainBox">
       {!showFavorites && (
         <SearchBar handleSearch={handleSearch} id="mainSearchBar" />
       )}
@@ -86,8 +86,8 @@ function CharacterList({
         </div>
       ) : (
         <div>
-          <h2 className="text-start mb-4">Favorites</h2>
-          <SearchBar handleSearch={handleFavoritesSearch} />
+          <h2 className="text-start">Favorites</h2>
+          <SearchBar handleSearch={handleFavoritesSearch} className="mb-3" />
           <span className="text-start">{favorites.length} results</span>
           <div className="charactersContainer g-4 mt-5">
             {favorites.map((character) => (

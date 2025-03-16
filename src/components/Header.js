@@ -1,6 +1,6 @@
 import React from "react";
 import { FaHeart } from "react-icons/fa";
-import logo from "../images/logo-bg.png";
+import logo from "../images/dragonBallZ.png";
 import "../styles/header.css";
 
 function Header({ favoriteCount, toggleFavorites }) {
