@@ -17,3 +17,9 @@
     pointer-events: none;
   }
 }
+
+.form-control:focus-visible,
+:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}

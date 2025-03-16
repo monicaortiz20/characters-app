@@ -60,19 +60,19 @@ function CharacterList({
   }
 
   return (
-    <div>
+    <div className="mainBox">
       {!showFavorites && (
         <SearchBar handleSearch={handleSearch} id="mainSearchBar" />
       )}
       {!showFavorites ? (
-        <div>
-          <h3 className="text-center mb-4">{filterCharacter.length} results</h3>
+        <div className="mt-3">
+          <h3 className="text-start mb-4">{filterCharacter.length} results</h3>
           {loading ? (
             <div className="text-center">Loading...</div>
           ) : error ? (
             <div className="text-center text-danger">{error}</div>
           ) : (
-            <div className="row row-cols-1 row-cols-md-4 g-4 mb-4">
+            <div className="charactersContainer g-4 mb-4">
               {filterCharacter.map((character) => (
                 <CharacterCard
                   key={character.id}
@@ -90,7 +90,7 @@ function CharacterList({
           <h1 className="text-start mb-4">Favorites</h1>
           <SearchBar handleSearch={handleFavoritesSearch} />
           <h3 className="text-center mb-4">{favorites.length} results</h3>
-          <div className="row row-cols-1 row-cols-md-4 g-4 mb-4">
+          <div className="charactersContainer g-4 mb-4">
             {favorites.map((character) => (
               <CharacterCard
                 key={character.id}

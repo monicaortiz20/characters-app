@@ -1,39 +1,16 @@
-.search-bar {
-  position: relative;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid black;
-}
-
-.search-bar {
-  .form-control {
-    width: 100%;
-    padding-right: 2.5rem;
-  }
-  input {
-    padding: 0 0 0 40px;
-    text-transform: capitalize;
-    color: #aaaaaa;
+.mainBox {
+  h3 {
+    font-size: 14px;
     font-weight: 400;
-    border: none !important;
+    text-transform: uppercase;
+    color: black;
+    font-family: "Roboto Condensed";
   }
-  .search-icon {
-    position: absolute;
-    left: 10px;
-    color: #6c757d;
-    pointer-events: none;
+
+  .charactersContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 240px);
+    gap: 20px;
+    align-items: stretch;
   }
-}
-input:focus-visible {
-  outline: none !important;
-}
-.form-control::placeholder {
-  color: #b5b9bd;
-  opacity: 1;
-}
-.form-control:-ms-input-placeholder {
-  color: #b5b9bd;
-}
-.form-control::-mss-input-placeholder {
-  color: #b5b9bd;
 }

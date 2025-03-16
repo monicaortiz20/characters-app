@@ -1,6 +1,7 @@
 import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import "../styles/characterCard.css";
 
 function CharacterCard({ character, addFavorite, deleteFavorite, isFavorite }) {
   const navigate = useNavigate();
@@ -19,14 +20,16 @@ function CharacterCard({ character, addFavorite, deleteFavorite, isFavorite }) {
   }
 
   return (
-    <div className="col">
-      <div className="card h-100 shadow" onClick={seeCharacterDetail}>
-        <img
-          src={character.image}
-          className="card-img-top"
-          alt={character.name}
-        />
-        <div className="card-body">
+    <div className="cardBox">
+      <div className="containerBox" onClick={seeCharacterDetail}>
+        <div className="imgBox">
+          <img
+            src={character.image}
+            className="card-img-top"
+            alt={character.name}
+          />
+        </div>
+        <div className="cardBody">
           <h5 className="card-title">{character.name}</h5>
           <button
             className="btn btn-primary"
