@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CharacterCard from "../components/CharacterCard";
+import SearchBar from "../components/SearchBar";
 
 //recibimos funciones addFavorite y deleteFavorite como prop y se lo pasamos a CharacterCard
 function CharacterList({
@@ -40,8 +41,7 @@ function CharacterList({
 
   function handleSearch(e) {
     const request = e.target.value.toLowerCase();
-    const listResults = showFavorites ? favorites : characters;
-    const filteredResults = listResults.filter((character) =>
+    const filteredResults = characters.filter((character) =>
       //buscamos en minúscula por nombre
       character.name.toLowerCase().includes(request)
     );
@@ -49,22 +49,21 @@ function CharacterList({
     setFilterCharacter(filteredResults);
   }
 
+  function handleFavoritesSearch(e) {
+    const request = e.target.value.toLowerCase();
+    const filteredResults = favorites.filter((fav) =>
+      fav.name.toLowerCase().includes(request)
+    );
+    setFilterCharacter(filteredResults);
+  }
+
   return (
     <div>
+      {!showFavorites && (
+        <SearchBar handleSearch={handleSearch} id="mainSearchBar" />
+      )}
       {!showFavorites ? (
         <div>
-          <div className="row justify-content-center mb-4">
-            <div className="col-md-6">
-              <div className="input-group">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="SEARCH A CHARACTER..."
-                  onChange={handleSearch}
-                />
-              </div>
-            </div>
-          </div>
           <h3 className="text-center mb-4">{filterCharacter.length} results</h3>
           {loading ? (
             <div className="text-center">Loading...</div>
@@ -87,18 +86,7 @@ function CharacterList({
       ) : (
         <div>
           <h1 className="text-start mb-4">Favorites</h1>
-          <div className="row justify-content-center mb-4">
-            <div className="col-md-6">
-              <div className="input-group">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="SEARCH A CHARACTER..."
-                  onChange={handleSearch}
-                />
-              </div>
-            </div>
-          </div>
+          <SearchBar handleSearch={handleFavoritesSearch} />
           <h3 className="text-center mb-4">{favorites.length} results</h3>
           <div className="row row-cols-1 row-cols-md-4 g-4 mb-4">
             {favorites.map((character) => (

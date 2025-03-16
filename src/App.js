@@ -30,7 +30,7 @@ function App() {
         favoriteCount={favorites.length}
         toggleFavorites={toggleFavorites}
       />
-      <div className="container mt-5">
+      <div className="m-5">
         <Routes>
           <Route
             path="/"
