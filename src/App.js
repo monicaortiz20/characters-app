@@ -30,7 +30,7 @@ function App() {
         favoriteCount={favorites.length}
         toggleFavorites={toggleFavorites}
       />
-      <div className="m-5">
+      <div>
         <Routes>
           <Route
             path="/"
@@ -43,7 +43,10 @@ function App() {
               />
             }
           />
-          <Route path="/detail/:id" element={<CharacterDetailPage />} />
+          <Route
+            path="/detail/:id"
+            element={<CharacterDetailPage favorites={favorites} />}
+          />
         </Routes>
       </div>
     </Router>

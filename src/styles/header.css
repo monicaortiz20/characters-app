@@ -1,10 +1,19 @@
+@media screen and (max-width: 480px) {
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 1024px) {
+}
+@media screen and (max-width: 1200px) {
+}
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   background-color: black;
-  height: 5rem;
+  height: 7rem;
 }
 
 .header-left {
@@ -25,8 +34,11 @@ header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+
   span {
     color: white;
     font-size: 20px;
+    font-family: "Roboto Condensed";
+    font-weight: 300;
   }
 }

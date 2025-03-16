@@ -26,7 +26,7 @@ function CharacterCard({ character, addFavorite, deleteFavorite, isFavorite }) {
           <img src={character.image} className="" alt={character.name} />
         </div>
         <div className="cardBody">
-          <h5 className="card-title">{character.name}</h5>
+          <h6 className="card-title">{character.name}</h6>
           <button
             className="btn"
             onClick={(e) => {

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CharacterCard from "../components/CharacterCard";
 import SearchBar from "../components/SearchBar";
-import { FaSearch } from "react-icons/fa";
 import "../styles/characterList.css";
 
 //recibimos funciones addFavorite y deleteFavorite como prop y se lo pasamos a CharacterCard
@@ -60,19 +59,19 @@ function CharacterList({
   }
 
   return (
-    <div className="mainBox">
+    <div className="mainBox m-5">
       {!showFavorites && (
         <SearchBar handleSearch={handleSearch} id="mainSearchBar" />
       )}
       {!showFavorites ? (
         <div className="mt-3">
-          <h3 className="text-start mb-4">{filterCharacter.length} results</h3>
+          <span className="text-start">{filterCharacter.length} results</span>
           {loading ? (
             <div className="text-center">Loading...</div>
           ) : error ? (
             <div className="text-center text-danger">{error}</div>
           ) : (
-            <div className="charactersContainer g-4 mb-4">
+            <div className="charactersContainer g-4 mt-5">
               {filterCharacter.map((character) => (
                 <CharacterCard
                   key={character.id}
@@ -87,10 +86,10 @@ function CharacterList({
         </div>
       ) : (
         <div>
-          <h1 className="text-start mb-4">Favorites</h1>
+          <h2 className="text-start mb-4">Favorites</h2>
           <SearchBar handleSearch={handleFavoritesSearch} />
-          <h3 className="text-center mb-4">{favorites.length} results</h3>
-          <div className="charactersContainer g-4 mb-4">
+          <span className="text-start">{favorites.length} results</span>
+          <div className="charactersContainer g-4 mt-5">
             {favorites.map((character) => (
               <CharacterCard
                 key={character.id}

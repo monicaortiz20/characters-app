@@ -1,0 +1,94 @@
+@media screen and (max-width: 480px) {
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 1024px) {
+}
+
+.containerDetail {
+  .mainboxDetail {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #333333;
+  }
+
+  .dataDetail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+
+    h1 {
+      font-weight: 700;
+      text-transform: uppercase;
+      color: white;
+      font-family: "Roboto Condensed";
+    }
+    p {
+      color: white;
+      font-size: 18px;
+      font-family: "Roboto Condensed";
+    }
+  }
+
+  .heartDetail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+.heart-icon {
+  font-size: 1.5rem;
+  stroke: white;
+  stroke-width: 1.5rem;
+  fill: transparent;
+}
+.heart-icon.favorite {
+  stroke: red !important;
+  fill: red !important;
+}
+.transformationContainer {
+  display: flex;
+  justify-content: center;
+
+  .transformationBox {
+    width: 60%;
+
+    ul {
+      display: flex;
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      flex-direction: column;
+      padding: 12px 25px;
+      span {
+        font-size: 18px;
+        font-weight: 300;
+        font-family: "Roboto Condensed";
+      }
+      p {
+        font-size: 18px;
+        font-weight: 400;
+        font-family: "Roboto Condensed";
+      }
+    }
+  }
+
+  h2 {
+    font-weight: 500;
+    text-transform: uppercase;
+    color: black;
+    font-family: "Roboto Condensed";
+  }
+}
+.no-transformations {
+  font-size: 18px;
+  font-family: "Roboto Condensed";
+  font-weight: 300;
+  color: black;
+}

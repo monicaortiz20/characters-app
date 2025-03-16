@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { FaHeart } from "react-icons/fa";
+import "../styles/characterDetail.css";
 
-function CharacterDetail() {
+function CharacterDetail({ favorites }) {
   const { id } = useParams();
   const [characterDetail, setCharacterDetail] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -32,6 +34,8 @@ function CharacterDetail() {
     }
   }
 
+  const isFavorite = favorites.some((fav) => fav.id === id);
+
   if (loading) {
     return <div className="text-center">Loading...</div>;
   }
@@ -40,25 +44,45 @@ function CharacterDetail() {
   }
 
   return (
-    <div className="container mt-5">
+    <div className="containerDetail">
       <div className="row">
-        <div className="col-md-4">
-          <img
-            src={characterDetail.image}
-            alt={characterDetail.name}
-            className="img-fluid"
-          />
-          <div className="col-md-8">
-            <h1>{characterDetail.name}</h1>
-            <p>{characterDetail.description}</p>
-            <h3>Transformations</h3>
-            <ul>
-              {characterDetail.transformations.map((trans, index) => (
-                <li key={index}>
-                  {trans.name} - ki: {trans.ki}
-                </li>
-              ))}
-            </ul>
+        <div className="mainboxDetail">
+          <div className="dataDetail">
+            <div className="imgBox">
+              <img
+                src={characterDetail.image}
+                alt={characterDetail.name}
+                className="img-fluid"
+              />
+            </div>
+            <div className="col-md-8">
+              <div className="heartDetail">
+                <h1>{characterDetail.name}</h1>
+                <FaHeart
+                  className={`heart-icon ${isFavorite ? "favorite" : ""}`}
+                />
+              </div>
+              <p>{characterDetail.description}</p>
+            </div>
+          </div>
+        </div>
+        <div className="transformationContainer mt-5">
+          <div className="transformationBox">
+            <h2>Transformations</h2>
+            {characterDetail.transformations.length !== 0 ? (
+              <ul>
+                {characterDetail.transformations.map((trans, index) => (
+                  <li key={index}>
+                    <span>{trans.name}</span>
+                    <p>KI: {trans.ki}</p>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <spam className="no-transformations text-start">
+                This character has no transformations.
+              </spam>
+            )}
           </div>
         </div>
       </div>
