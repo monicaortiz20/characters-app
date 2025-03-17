@@ -11,9 +11,9 @@ function CharacterList({
   deleteFavorite,
   showFavorites,
 }) {
-  //declaramos estados: listado de los personajes, búsqueda, ...
+  //declaramos estados:
   const [characters, setCharacters] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(""); // Modificación: nuevo estado para el término de búsqueda
+  const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(50);
   const [error, setError] = useState(null);
@@ -44,18 +44,18 @@ function CharacterList({
 
   // Filtrar personajes según el término de búsqueda
   const filteredCharacters = (showFavorites ? favorites : characters).filter(
-    (character) =>
-      character.name.toLowerCase().includes(searchTerm.toLowerCase()) // Modificación: aplicar filtro de búsqueda
+    (char) => char.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  function handleSearch(e) {
+    setSearchTerm(e.target.value);
+    setCurrentPage(1);
+  }
 
   // Cálculo de índices para la paginación
   const iLastItem = currentPage * itemsPerPage;
   const iFirstItem = iLastItem - itemsPerPage;
-  const currentCharacters = filteredCharacters.slice(iFirstItem, iLastItem); // Modificación: paginar resultados filtrados
-
-  function handleSearch(e) {
-    setSearchTerm(e.target.value); // Modificación: actualizar término de búsqueda
-  }
+  const currentCharacters = filteredCharacters.slice(iFirstItem, iLastItem);
 
   return (
     <div className="mainBox">
@@ -65,7 +65,6 @@ function CharacterList({
       {!showFavorites ? (
         <div className="mt-3">
           <span className="text-start">{currentCharacters.length} results</span>{" "}
-          {/* Modificación: mostrar resultados filtrados */}
           {loading ? (
             <div className="text-center">Loading...</div>
           ) : error ? (
