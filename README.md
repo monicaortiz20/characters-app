@@ -12,11 +12,11 @@ Upon launching the app, users are greeted with the Characters List view. This vi
 
 #### Key Features:
 
-- *Logo and Favorites Icon*: At the top of the page, users will find the DragonBall logo and an icon indicating the number of favorite characters. The favorites icon updates dynamically as characters are added or removed from the favorites list.
-- *Search Bar*: A search bar allows users to search for characters by name. For example, typing "Goku" will filter the list to show all characters with "Goku" in their name. The search results update in real-time, providing immediate feedback.
-- *Results Counter*: Below the search bar, a counter displays the number of characters matching the search criteria. This counter updates automatically as the user types.
-- *Character List*: The main section of the view displays a list of characters, each with an image, name, and an option to add the character to favorites. Clicking on a character redirects the user to the Character Details view.
-- *Favorites Management*: Users can add characters to their favorites by clicking the heart icon next to each character. The icon changes color to indicate the character has been added to favorites, and the favorites counter at the top updates accordingly. Users can also remove characters from their favorites, with changes persisting across different views.
+- _Logo and Favorites Icon_: At the top of the page, users will find the DragonBall logo and an icon indicating the number of favorite characters. The favorites icon updates dynamically as characters are added or removed from the favorites list.
+- _Search Bar_: A search bar allows users to search for characters by name. For example, typing "Goku" will filter the list to show all characters with "Goku" in their name. The search results update in real-time, providing immediate feedback.
+- _Results Counter_: Below the search bar, a counter displays the number of characters matching the search criteria. This counter updates automatically as the user types.
+- _Character List_: The main section of the view displays a list of characters, each with an image, name, and an option to add the character to favorites. Clicking on a character redirects the user to the Character Details view.
+- _Favorites Management_: Users can add characters to their favorites by clicking the heart icon next to each character. The icon changes color to indicate the character has been added to favorites, and the favorites counter at the top updates accordingly. Users can also remove characters from their favorites, with changes persisting across different views.
 
 #### Favorites Filter:
 
@@ -28,9 +28,9 @@ When a user clicks on a character from the list, they are taken to the Character
 
 #### Key Features:
 
-- *Logo and Favorites Icon*: Similar to the Characters List view, the top of the page features the DragonBall logo and a favorites icon. Clicking the logo redirects the user back to the main list, while the favorites icon shows the user's favorite characters.
-- *Character Information*: The main section displays the character's image, name, and description. Users can add the character to their favorites from this view as well.
-- *Comics/Transformations List*: Below the character information, a list of the character's transformations is displayed, ordered by release date or KI. Only the first 20 items are shown to keep the view concise and manageable.
+- _Logo and Favorites Icon_: Similar to the Characters List view, the top of the page features the DragonBall logo and a favorites icon. Clicking the logo redirects the user back to the main list, while the favorites icon shows the user's favorite characters.
+- _Character Information_: The main section displays the character's image, name, and description. Users can add the character to their favorites from this view as well.
+- _Comics/Transformations List_: Below the character information, a list of the character's transformations is displayed, ordered by release date or KI. Only the first 20 items are shown to keep the view concise and manageable.
 
 ## Additional Features
 
@@ -40,32 +40,35 @@ When a user clicks on a character from the list, they are taken to the Character
 - ✅*State Management*: Efficient state management ensures smooth interactions and data persistence across different views.
 
 ## 🛠️ Technologies Used
+
 React ⚛️: JavaScript library for building user interfaces.
+
 React Router: Declarative routing for React applications.
+
 Bootstrap: CSS framework for responsive design.
+
 Dragon Ball API 🌐: Data source for characters and planets.
 
 ## Getting Started
 
 To get started with the DragonBall Characters App, follow these steps:
 
-1. *Clone the repository*   
-2. *Navigate to the project directory*:
-3. *Install dependencies*:
+1. _Clone the repository_
+2. _Navigate to the project directory_:
+3. _Install dependencies_:
    npm install
-4. *Install additional dependencies*
+4. _Install additional dependencies_
    npm install react-router-dom bootstrap
-5. *Usage to start the application in development mode:*
+5. _Usage to start the application in development mode:_
    npm start
 
 This application will automatically open in your default browser. If not, visit: http://localhost:3000
 
 To build the application for production
-   npm build
+npm build
 
 To run test
-   npm test
-   
+npm test
 
 ## Running the App
 
@@ -73,11 +76,9 @@ To start the application in development mode, use the following command:
 
 npm start
 
-
 To run tests and ensure everything is working correctly:
 
 npm test
-
 
 To build the application for production:
 
