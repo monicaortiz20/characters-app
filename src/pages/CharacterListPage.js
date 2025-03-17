@@ -4,6 +4,10 @@ import SearchBar from "../components/SearchBar";
 import Pagination from "../components/Pagination";
 import "../styles/characterList.css";
 
+//se define la clave para el caché y el tiempo de expiración en milisegundos
+const CACHE_KEY = "charactersCache";
+const CACHE_EXPIRATION = 24 * 60 * 60 * 1000;
+
 //recibimos funciones addFavorite y deleteFavorite como prop y se lo pasamos a CharacterCard
 function CharacterList({
   favorites,
@@ -21,6 +25,19 @@ function CharacterList({
 
   //traemos datos:
   useEffect(() => {
+    //intentamos coger datos del caché
+    const cachedData = localStorage.getItem(CACHE_KEY);
+    if (cachedData) {
+      //destructuramos
+      const { data, timestamp } = JSON.parse(cachedData);
+      //comprobamos si los datos de la caché han expirado o no
+      if (Date.now() - timestamp < CACHE_EXPIRATION) {
+        setCharacters(data);
+        setLoading(false);
+        return;
+      }
+    }
+    //si no hay datos en caché, hacemos la llamada al API
     getCharactersList();
   }, []);
 
@@ -33,6 +50,11 @@ function CharacterList({
       const data = await resp.json();
       //añadimos los personajes al estado
       setCharacters(data.items);
+      //guardamos datos en localStorage junto con el tiempo predeterminado
+      localStorage.setItem(
+        CACHE_KEY,
+        JSON.stringify({ data: data.items, timestamp: Date.now() })
+      );
     } catch (error) {
       setError(
         "An unexpected error has occurred. Unable to get characters at this time. Please try again later."
