@@ -21,6 +21,15 @@ function CharacterList({
     getCharactersList();
   }, []);
 
+  //para actualizar filterCharacter cuando showFavorites, favorites o charactar cambia
+  useEffect(() => {
+    if (showFavorites) {
+      setFilterCharacter(favorites);
+    } else {
+      setFilterCharacter(characters);
+    }
+  }, [showFavorites, characters, favorites]);
+
   async function getCharactersList() {
     try {
       setLoading(true);
@@ -40,22 +49,31 @@ function CharacterList({
     }
   }
 
+  // function handleSearch(e) {
+  //   const request = e.target.value.toLowerCase();
+  //   const filteredResults = characters.filter((character) =>
+  //     //buscamos en minúscula por nombre
+  //     character.name.toLowerCase().includes(request)
+  //   );
+  //   //seteamos estado de filtrado:
+  //   setFilterCharacter(filteredResults);
+  // }
+
+  // function handleFavoritesSearch(e) {
+  //   const request = e.target.value.toLowerCase();
+  //   const filteredResults = favorites.filter((fav) =>
+  //     fav.name.toLowerCase().includes(request)
+  //   );
+  //   setFilterCharacter(filteredResults);
+  // }
+
   function handleSearch(e) {
     const request = e.target.value.toLowerCase();
-    const filteredResults = characters.filter((character) =>
-      //buscamos en minúscula por nombre
+    const source = showFavorites ? favorites : characters;
+    const filterResults = source.filter((character) =>
       character.name.toLowerCase().includes(request)
     );
-    //seteamos estado de filtrado:
-    setFilterCharacter(filteredResults);
-  }
-
-  function handleFavoritesSearch(e) {
-    const request = e.target.value.toLowerCase();
-    const filteredResults = favorites.filter((fav) =>
-      fav.name.toLowerCase().includes(request)
-    );
-    setFilterCharacter(filteredResults);
+    setFilterCharacter(filterResults);
   }
 
   return (
@@ -87,7 +105,11 @@ function CharacterList({
       ) : (
         <div>
           <h2 className="text-start">Favorites</h2>
-          <SearchBar handleSearch={handleFavoritesSearch} className="mb-3" />
+          <SearchBar
+            handleSearch={handleSearch}
+            id="favoritesSearchBar"
+            className="mb-3"
+          />
           <span className="text-start">{favorites.length} results</span>
           <div className="charactersContainer g-4 mt-5">
             {favorites.map((character) => (
