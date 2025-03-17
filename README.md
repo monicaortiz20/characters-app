@@ -39,21 +39,32 @@ When a user clicks on a character from the list, they are taken to the Character
 - ✅*Code Quality*: Linters and formatters are used to maintain high code quality and consistency.
 - ✅*State Management*: Efficient state management ensures smooth interactions and data persistence across different views.
 
+## 🛠️ Technologies Used
+React ⚛️: JavaScript library for building user interfaces.
+React Router: Declarative routing for React applications.
+Bootstrap: CSS framework for responsive design.
+Dragon Ball API 🌐: Data source for characters and planets.
+
 ## Getting Started
 
 To get started with the DragonBall Characters App, follow these steps:
 
-1. *Clone the repository*:
-   sh
-   git clone https://github.com/your-username/dragonball-characters-app.git
-   
+1. *Clone the repository*   
 2. *Navigate to the project directory*:
-   sh
-   cd dragonball-characters-app
-   
 3. *Install dependencies*:
-   sh
    npm install
+4. *Install additional dependencies*
+   npm install react-router-dom bootstrap
+5. *Usage to start the application in development mode:*
+   npm start
+
+This application will automatically open in your default browser. If not, visit: http://localhost:3000
+
+To build the application for production
+   npm build
+
+To run test
+   npm test
    
 
 ## Running the App
