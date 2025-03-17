@@ -2,6 +2,11 @@
 
 Welcome to the DragonBall Characters App repository! This interactive application, built with React 19, allows users to explore and manage their favorite DragonBall characters. The app is designed to be fully responsive and adheres to a design proposed in Figma. It offers a range of features including character search, filtering, and detailed views, all while ensuring a smooth and engaging user experience.
 
+
+##🌍 To navigate directly to the deployed project:
+
+ ⚛️ https://dragonball-characters-bbxng9qfl-monicaortiz20s-projects.vercel.app/
+
 ## Overview
 
 The DragonBall Characters App is divided into two main views: the Characters List and the Character Details view. Each view is designed to provide a seamless and intuitive experience for users as they navigate through the app.
