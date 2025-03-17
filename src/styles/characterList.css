@@ -6,6 +6,10 @@
     color: black;
     font-family: "Roboto Condensed";
   }
+  .charactersMainContainer {
+    display: flex;
+    flex-direction: column;
+  }
 
   span {
     font-weight: 400;

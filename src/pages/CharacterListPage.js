@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CharacterCard from "../components/CharacterCard";
 import SearchBar from "../components/SearchBar";
+import Pagination from "../components/Pagination";
 import "../styles/characterList.css";
 
 //recibimos funciones addFavorite y deleteFavorite como prop y se lo pasamos a CharacterCard
@@ -13,6 +14,8 @@ function CharacterList({
   //declaramos estados: listado de los personajes, búsqueda, ...
   const [characters, setCharacters] = useState([]);
   const [filterCharacter, setFilterCharacter] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(50);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -38,8 +41,8 @@ function CharacterList({
       );
       const data = await resp.json();
       //añadimos los personajes al estado
-      setCharacters(data.items.slice(0, 50));
-      setFilterCharacter(data.items.slice(0, 50));
+      setCharacters(data.items);
+      setFilterCharacter(data.items);
     } catch (error) {
       setError(
         "An unexpected error has occurred. Unable to get characters at this time. Please try again later."
@@ -49,23 +52,10 @@ function CharacterList({
     }
   }
 
-  // function handleSearch(e) {
-  //   const request = e.target.value.toLowerCase();
-  //   const filteredResults = characters.filter((character) =>
-  //     //buscamos en minúscula por nombre
-  //     character.name.toLowerCase().includes(request)
-  //   );
-  //   //seteamos estado de filtrado:
-  //   setFilterCharacter(filteredResults);
-  // }
-
-  // function handleFavoritesSearch(e) {
-  //   const request = e.target.value.toLowerCase();
-  //   const filteredResults = favorites.filter((fav) =>
-  //     fav.name.toLowerCase().includes(request)
-  //   );
-  //   setFilterCharacter(filteredResults);
-  // }
+  // Cálculo de índices para la paginación
+  const iLastItem = currentPage * itemsPerPage;
+  const iFirstItem = iLastItem - itemsPerPage;
+  const currentCharacters = filterCharacter.slice(iFirstItem, iLastItem);
 
   function handleSearch(e) {
     const request = e.target.value.toLowerCase();
@@ -83,22 +73,32 @@ function CharacterList({
       )}
       {!showFavorites ? (
         <div className="mt-3">
-          <span className="text-start">{filterCharacter.length} results</span>
+          <span className="text-start">{currentCharacters.length} results</span>
           {loading ? (
             <div className="text-center">Loading...</div>
           ) : error ? (
             <div className="text-center text-danger">{error}</div>
           ) : (
-            <div className="charactersContainer g-4 mt-5">
-              {filterCharacter.map((character) => (
-                <CharacterCard
-                  key={character.id}
-                  character={character}
-                  isFavorite={favorites.some((fav) => fav.id === character.id)}
-                  addFavorite={addFavorite}
-                  deleteFavorite={deleteFavorite}
-                />
-              ))}
+            <div className="charactersMainContainer">
+              <div className="charactersContainer g-4 mt-5">
+                {currentCharacters.map((character) => (
+                  <CharacterCard
+                    key={character.id}
+                    character={character}
+                    isFavorite={favorites.some(
+                      (fav) => fav.id === character.id
+                    )}
+                    addFavorite={addFavorite}
+                    deleteFavorite={deleteFavorite}
+                  />
+                ))}
+              </div>
+              <Pagination
+                itemsPerPage={itemsPerPage}
+                totalItems={filterCharacter.length}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+              />
             </div>
           )}
         </div>
