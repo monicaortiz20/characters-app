@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FaSearch } from 'react-icons/fa';
 import '../styles/searchBar.css';
 
@@ -15,5 +16,10 @@ function SearchBar({ handleSearch, id }) {
     </div>
   );
 }
+
+SearchBar.propTypes = {
+  handleSearch: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+};
 
 export default SearchBar;

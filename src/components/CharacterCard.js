@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FaHeart } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import '../styles/characterCard.css';
@@ -6,7 +7,7 @@ import '../styles/characterCard.css';
 function CharacterCard({ character, addFavorite, deleteFavorite, isFavorite }) {
   const navigate = useNavigate();
 
-  //verificamos si existe como favorito o no
+  // Verificamos si existe como favorito o no
   function handleFavorites() {
     if (isFavorite) {
       deleteFavorite(character);
@@ -30,16 +31,28 @@ function CharacterCard({ character, addFavorite, deleteFavorite, isFavorite }) {
           <button
             className="btn"
             onClick={(e) => {
-              e.stopPropagation(); //para que el evento click de 'favorite' no aplique al padre
+              e.stopPropagation(); // Para que el evento click de 'favorite' no aplique al padre
               handleFavorites();
             }}
           >
             <FaHeart className={`heart-icon ${isFavorite ? 'favorite' : ''}`} />
+            ;
           </button>
         </div>
       </div>
     </div>
   );
 }
+
+CharacterCard.propTypes = {
+  character: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+  }).isRequired,
+  addFavorite: PropTypes.func.isRequired,
+  deleteFavorite: PropTypes.func.isRequired,
+  isFavorite: PropTypes.bool.isRequired,
+};
 
 export default CharacterCard;

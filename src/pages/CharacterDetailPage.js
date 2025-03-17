@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
 import '../styles/characterDetail.css';
@@ -9,7 +10,7 @@ function CharacterDetail({ favorites, addFavorite, deleteFavorite }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  //traemos datos del personaje correspondiente
+  // Traemos datos del personaje correspondiente
   useEffect(() => {
     getCharacterDetail();
   }, [id]);
@@ -21,7 +22,7 @@ function CharacterDetail({ favorites, addFavorite, deleteFavorite }) {
         `https://dragonball-api.com/api/characters/${id}`
       );
       const data = await resp.json();
-      //ordenamos las transformaciones
+      // Ordenamos las transformaciones
       data.transformations.sort((a, b) => b.ki - a.ki);
       setCharacterDetail(data);
     } catch (error) {
@@ -98,5 +99,17 @@ function CharacterDetail({ favorites, addFavorite, deleteFavorite }) {
     </div>
   );
 }
+
+CharacterDetail.propTypes = {
+  favorites: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  addFavorite: PropTypes.func.isRequired,
+  deleteFavorite: PropTypes.func.isRequired,
+};
 
 export default CharacterDetail;

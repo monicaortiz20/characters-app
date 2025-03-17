@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import CharacterCard from '../components/CharacterCard';
 import SearchBar from '../components/SearchBar';
 import Pagination from '../components/Pagination';
@@ -141,5 +142,12 @@ function CharacterList({
     </div>
   );
 }
+
+CharacterList.propTypes = {
+  favorites: PropTypes.array.isRequired,
+  addFavorite: PropTypes.func.isRequired,
+  deleteFavorite: PropTypes.func.isRequired,
+  showFavorites: PropTypes.bool.isRequired,
+};
 
 export default CharacterList;

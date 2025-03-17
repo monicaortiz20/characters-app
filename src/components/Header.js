@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FaHeart } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import logo from '../images/dragonBallZ.png';
@@ -11,6 +12,7 @@ function Header({ favoriteCount, toggleFavorites }) {
     toggleFavorites();
     navigate('/');
   }
+
   return (
     <header className="header">
       <div className="header-left">
@@ -27,5 +29,10 @@ function Header({ favoriteCount, toggleFavorites }) {
     </header>
   );
 }
+
+Header.propTypes = {
+  favoriteCount: PropTypes.number.isRequired,
+  toggleFavorites: PropTypes.func.isRequired,
+};
 
 export default Header;
