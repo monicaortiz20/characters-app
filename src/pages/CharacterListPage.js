@@ -46,7 +46,7 @@ function CharacterList({
     try {
       setLoading(true);
       const resp = await fetch(
-        'https://dragonball-api.com/api/characters?limit=1000'
+        `${process.env.REACT_APP_API_BASE_URL}/characters?limit=1000`
       );
       const data = await resp.json();
       //añadimos los personajes al estado

@@ -19,7 +19,7 @@ function CharacterDetail({ favorites, addFavorite, deleteFavorite }) {
     try {
       setLoading(true);
       const resp = await fetch(
-        `https://dragonball-api.com/api/characters/${id}`
+        `${process.env.REACT_APP_API_BASE_URL}/characters/${id}`
       );
       const data = await resp.json();
       // Ordenamos las transformaciones
