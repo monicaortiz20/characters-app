@@ -70,15 +70,15 @@ To run test
 ## Running the App
 
 To start the application in development mode, use the following command:
-sh
+
 npm start
 
 
 To run tests and ensure everything is working correctly:
-sh
+
 npm test
 
 
 To build the application for production:
-sh
+
 npm run build
