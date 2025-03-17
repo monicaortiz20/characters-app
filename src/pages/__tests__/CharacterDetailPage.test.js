@@ -1,14 +1,14 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
-import CharacterDetailPage from "../CharacterDetailPage";
-import "@testing-library/jest-dom"; // Para tener matchers adicionales
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import CharacterDetailPage from '../CharacterDetailPage';
+import '@testing-library/jest-dom'; // Para tener matchers adicionales
 
 const mockCharacter = {
   id: 1,
-  name: "Goku",
-  image: "goku.jpg",
-  description: "A Saiyan warrior",
-  transformations: [{ name: "Super Saiyan", ki: 9000 }],
+  name: 'Goku',
+  image: 'goku.jpg',
+  description: 'A Saiyan warrior',
+  transformations: [{ name: 'Super Saiyan', ki: 9000 }],
 };
 
 global.fetch = jest.fn(() =>
@@ -17,8 +17,8 @@ global.fetch = jest.fn(() =>
   })
 );
 
-describe("CharacterDetailPage", () => {
-  test("renders character details", async () => {
+describe('CharacterDetailPage', () => {
+  test('renders character details', async () => {
     render(
       <CharacterDetailPage
         favorites={[]}
@@ -34,8 +34,8 @@ describe("CharacterDetailPage", () => {
     expect(await screen.findByText(/Super Saiyan/i)).toBeInTheDocument();
   });
 
-  test("handles API error", async () => {
-    global.fetch.mockImplementationOnce(() => Promise.reject("API is down"));
+  test('handles API error', async () => {
+    global.fetch.mockImplementationOnce(() => Promise.reject('API is down'));
     render(
       <CharacterDetailPage
         favorites={[]}

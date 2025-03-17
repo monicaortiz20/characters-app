@@ -1,5 +1,5 @@
-import React from "react";
-import "../styles/pagination.css";
+import React from 'react';
+import '../styles/pagination.css';
 
 function Pagination({ itemsPerPage, totalItems, currentPage, setCurrentPage }) {
   const pageNumbers = [];
@@ -14,7 +14,7 @@ function Pagination({ itemsPerPage, totalItems, currentPage, setCurrentPage }) {
         {pageNumbers.map((number) => (
           <li
             key={number}
-            className={`page-item ${number === currentPage ? "active" : ""}`}
+            className={`page-item ${number === currentPage ? 'active' : ''}`}
           >
             <button
               onClick={() => setCurrentPage(number)}

@@ -1,10 +1,10 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import Pagination from "../Pagination";
-import "@testing-library/jest-dom"; // Para tener matchers adicionales
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import Pagination from '../Pagination';
+import '@testing-library/jest-dom'; // Para tener matchers adicionales
 
-describe("Pagination", () => {
-  test("renders pagination buttons", () => {
+describe('Pagination', () => {
+  test('renders pagination buttons', () => {
     render(
       <Pagination
         itemsPerPage={10}
@@ -13,10 +13,10 @@ describe("Pagination", () => {
         setCurrentPage={jest.fn()}
       />
     );
-    expect(screen.getAllByRole("button").length).toBe(10);
+    expect(screen.getAllByRole('button').length).toBe(10);
   });
 
-  test("calls setCurrentPage on button click", () => {
+  test('calls setCurrentPage on button click', () => {
     const setCurrentPage = jest.fn();
     render(
       <Pagination
@@ -26,7 +26,7 @@ describe("Pagination", () => {
         setCurrentPage={setCurrentPage}
       />
     );
-    fireEvent.click(screen.getByText("2"));
+    fireEvent.click(screen.getByText('2'));
     expect(setCurrentPage).toHaveBeenCalledWith(2);
   });
 });

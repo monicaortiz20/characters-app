@@ -1,12 +1,12 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
-import CharacterListPage from "../CharacterListPage";
-import "@testing-library/jest-dom";
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import CharacterListPage from '../CharacterListPage';
+import '@testing-library/jest-dom';
 
 const mockCharacters = [
-  { id: 1, name: "Goku", image: "goku.jpg" },
-  { id: 2, name: "Vegeta", image: "vegeta.jpg" },
+  { id: 1, name: 'Goku', image: 'goku.jpg' },
+  { id: 2, name: 'Vegeta', image: 'vegeta.jpg' },
 ];
 
 global.fetch = jest.fn(() =>
@@ -15,8 +15,8 @@ global.fetch = jest.fn(() =>
   })
 );
 
-describe("CharacterListPage", () => {
-  test("renders character list", async () => {
+describe('CharacterListPage', () => {
+  test('renders character list', async () => {
     render(
       <MemoryRouter>
         <CharacterListPage
@@ -32,7 +32,7 @@ describe("CharacterListPage", () => {
     expect(await screen.findByText(/Vegeta/i)).toBeInTheDocument();
   });
 
-  test("handles search input", async () => {
+  test('handles search input', async () => {
     render(
       <MemoryRouter>
         <CharacterListPage
@@ -45,14 +45,14 @@ describe("CharacterListPage", () => {
     );
     expect(await screen.findByText(/Goku/i)).toBeInTheDocument();
     fireEvent.change(screen.getByPlaceholderText(/SEARCH A CHARACTER.../i), {
-      target: { value: "Vegeta" },
+      target: { value: 'Vegeta' },
     });
     expect(screen.queryByText(/Goku/i)).not.toBeInTheDocument();
     expect(screen.getByText(/Vegeta/i)).toBeInTheDocument();
   });
 
-  test("handles API error", async () => {
-    global.fetch.mockImplementationOnce(() => Promise.reject("API is down"));
+  test('handles API error', async () => {
+    global.fetch.mockImplementationOnce(() => Promise.reject('API is down'));
     render(
       <MemoryRouter>
         <CharacterListPage

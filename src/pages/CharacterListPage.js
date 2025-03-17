@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import CharacterCard from "../components/CharacterCard";
-import SearchBar from "../components/SearchBar";
-import Pagination from "../components/Pagination";
-import "../styles/characterList.css";
+import React, { useState, useEffect } from 'react';
+import CharacterCard from '../components/CharacterCard';
+import SearchBar from '../components/SearchBar';
+import Pagination from '../components/Pagination';
+import '../styles/characterList.css';
 
 //se define la clave para el caché y el tiempo de expiración en milisegundos
-const CACHE_KEY = "charactersCache";
+const CACHE_KEY = 'charactersCache';
 const CACHE_EXPIRATION = 24 * 60 * 60 * 1000;
 
 //recibimos funciones addFavorite y deleteFavorite como prop y se lo pasamos a CharacterCard
@@ -17,7 +17,7 @@ function CharacterList({
 }) {
   //declaramos estados:
   const [characters, setCharacters] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(50);
   const [error, setError] = useState(null);
@@ -45,7 +45,7 @@ function CharacterList({
     try {
       setLoading(true);
       const resp = await fetch(
-        "https://dragonball-api.com/api/characters?limit=1000"
+        'https://dragonball-api.com/api/characters?limit=1000'
       );
       const data = await resp.json();
       //añadimos los personajes al estado
@@ -57,7 +57,7 @@ function CharacterList({
       );
     } catch (error) {
       setError(
-        "An unexpected error has occurred. Unable to get characters at this time. Please try again later."
+        'An unexpected error has occurred. Unable to get characters at this time. Please try again later.'
       );
     } finally {
       setLoading(false);
@@ -86,7 +86,7 @@ function CharacterList({
       )}
       {!showFavorites ? (
         <div className="mt-3">
-          <span className="text-start">{currentCharacters.length} results</span>{" "}
+          <span className="text-start">{currentCharacters.length} results</span>{' '}
           {loading ? (
             <div className="text-center">Loading...</div>
           ) : error ? (
@@ -108,7 +108,7 @@ function CharacterList({
               </div>
               <Pagination
                 itemsPerPage={itemsPerPage}
-                totalItems={filteredCharacters.length} // Modificación: total de elementos filtrados
+                totalItems={filteredCharacters.length}
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
               />
@@ -125,8 +125,7 @@ function CharacterList({
           />
           <span className="text-start">
             {filteredCharacters.length} results
-          </span>{" "}
-          {/* Modificación: mostrar resultados filtrados */}
+          </span>{' '}
           <div className="charactersContainer g-4 mt-5">
             {filteredCharacters.map((character) => (
               <CharacterCard

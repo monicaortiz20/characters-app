@@ -1,12 +1,12 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import CharacterCard from "../CharacterCard";
-import "@testing-library/jest-dom"; // Para tener matchers adicionales
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import CharacterCard from '../CharacterCard';
+import '@testing-library/jest-dom'; // Para tener matchers adicionales
 
-const mockCharacter = { id: 1, name: "Goku", image: "goku.jpg" };
+const mockCharacter = { id: 1, name: 'Goku', image: 'goku.jpg' };
 
-describe("CharacterCard", () => {
-  test("renders character card", () => {
+describe('CharacterCard', () => {
+  test('renders character card', () => {
     render(
       <CharacterCard
         character={mockCharacter}
@@ -18,7 +18,7 @@ describe("CharacterCard", () => {
     expect(screen.getByText(/Goku/i)).toBeInTheDocument();
   });
 
-  test("calls addFavorite on button click if not favorite", () => {
+  test('calls addFavorite on button click if not favorite', () => {
     const addFavorite = jest.fn();
     render(
       <CharacterCard
@@ -28,11 +28,11 @@ describe("CharacterCard", () => {
         isFavorite={false}
       />
     );
-    fireEvent.click(screen.getByRole("button"));
+    fireEvent.click(screen.getByRole('button'));
     expect(addFavorite).toHaveBeenCalledWith(mockCharacter);
   });
 
-  test("calls deleteFavorite on button click if favorite", () => {
+  test('calls deleteFavorite on button click if favorite', () => {
     const deleteFavorite = jest.fn();
     render(
       <CharacterCard
@@ -42,7 +42,7 @@ describe("CharacterCard", () => {
         isFavorite={true}
       />
     );
-    fireEvent.click(screen.getByRole("button"));
+    fireEvent.click(screen.getByRole('button'));
     expect(deleteFavorite).toHaveBeenCalledWith(mockCharacter);
   });
 });

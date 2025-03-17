@@ -1,10 +1,10 @@
 //Componente principal: configura las rutas de la app.
-import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import CharacterListPage from "./pages/CharacterListPage";
-import CharacterDetailPage from "./pages/CharacterDetailPage";
-import Header from "./components/Header";
-import "./App.css";
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import CharacterListPage from './pages/CharacterListPage';
+import CharacterDetailPage from './pages/CharacterDetailPage';
+import Header from './components/Header';
+import './App.css';
 
 function App() {
   //estado para almacenar los favoritos

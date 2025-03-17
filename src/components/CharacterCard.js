@@ -1,7 +1,7 @@
-import React from "react";
-import { FaHeart } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
-import "../styles/characterCard.css";
+import React from 'react';
+import { FaHeart } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import '../styles/characterCard.css';
 
 function CharacterCard({ character, addFavorite, deleteFavorite, isFavorite }) {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ function CharacterCard({ character, addFavorite, deleteFavorite, isFavorite }) {
               handleFavorites();
             }}
           >
-            <FaHeart className={`heart-icon ${isFavorite ? "favorite" : ""}`} />
+            <FaHeart className={`heart-icon ${isFavorite ? 'favorite' : ''}`} />
           </button>
         </div>
       </div>

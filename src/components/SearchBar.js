@@ -1,6 +1,6 @@
-import React from "react";
-import { FaSearch } from "react-icons/fa";
-import "../styles/searchBar.css";
+import React from 'react';
+import { FaSearch } from 'react-icons/fa';
+import '../styles/searchBar.css';
 
 function SearchBar({ handleSearch, id }) {
   return (

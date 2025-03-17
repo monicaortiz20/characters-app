@@ -1,15 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { FaHeart } from "react-icons/fa";
-import "../styles/characterDetail.css";
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { FaHeart } from 'react-icons/fa';
+import '../styles/characterDetail.css';
 
-function CharacterDetail({
-  favorites,
-  toggleFavorites,
-  showFavorites,
-  addFavorite,
-  deleteFavorite,
-}) {
+function CharacterDetail({ favorites, addFavorite, deleteFavorite }) {
   const { id } = useParams();
   const [characterDetail, setCharacterDetail] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -32,7 +26,7 @@ function CharacterDetail({
       setCharacterDetail(data);
     } catch (error) {
       setError(
-        "An unexpected error has occurred. Unable to catch character details. Please try again later."
+        'An unexpected error has occurred. Unable to catch character details. Please try again later.'
       );
     } finally {
       setLoading(false);
@@ -73,7 +67,7 @@ function CharacterDetail({
               <div className="heartDetail">
                 <h1>{characterDetail.name}</h1>
                 <FaHeart
-                  className={`heart-icon ${isFavorite ? "favorite" : ""}`}
+                  className={`heart-icon ${isFavorite ? 'favorite' : ''}`}
                   onClick={handleToggleFavorite}
                 />
               </div>
