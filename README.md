@@ -4,7 +4,7 @@ Welcome to the DragonBall Characters App repository! This interactive applicatio
 
 ##🌍 To navigate directly to the deployed project:
 
-<a href="https://dragonball-characters-bbxng9qfl-monicaortiz20s-projects.vercel.app/" target="_blank">Dragon Ball App</a>
+<a href="https://dragonball-characters-app-monicaortiz20s-projects.vercel.app/" target="_blank">Dragon Ball App</a>
 
 ## Overview
 
