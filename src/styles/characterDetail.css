@@ -28,12 +28,12 @@
       font-weight: 700;
       text-transform: uppercase;
       color: white;
-      font-family: "Roboto Condensed";
+      font-family: 'Roboto Condensed';
     }
     p {
       color: white;
       font-size: 18px;
-      font-family: "Roboto Condensed";
+      font-family: 'Roboto Condensed';
       text-align: justify;
     }
   }
@@ -76,12 +76,12 @@
       span {
         font-size: 18px;
         font-weight: 300;
-        font-family: "Roboto Condensed";
+        font-family: 'Roboto Condensed';
       }
       p {
         font-size: 18px;
         font-weight: 400;
-        font-family: "Roboto Condensed";
+        font-family: 'Roboto Condensed';
       }
     }
   }
@@ -90,12 +90,12 @@
     font-weight: 500;
     text-transform: uppercase;
     color: black;
-    font-family: "Roboto Condensed";
+    font-family: 'Roboto Condensed';
   }
 }
 .no-transformations {
   font-size: 18px;
-  font-family: "Roboto Condensed";
+  font-family: 'Roboto Condensed';
   font-weight: 300;
   color: black;
 }
@@ -106,6 +106,10 @@
     .imgBox {
       margin: 20px 0;
     }
+  }
+  .description {
+    width: 100% !important;
+    padding: 2rem !important;
   }
   .transformationContainer {
     flex-direction: column !important;

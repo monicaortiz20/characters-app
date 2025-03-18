@@ -11,7 +11,7 @@ function Pagination({ itemsPerPage, totalItems, currentPage, setCurrentPage }) {
 
   return (
     <nav>
-      <ul className="pagination justify-content-center">
+      <ul className="pagination mt-5">
         {pageNumbers.map((number) => (
           <li
             key={number}
